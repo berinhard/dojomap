@@ -4,6 +4,8 @@ gem "rails", "2.3.8"
 gem 'haml'
 gem 'rcov'
 gem 'heroku'
+gem 'test-unit'
+
 
 group :development do
   # bundler requires these gems in development
@@ -21,5 +23,5 @@ group :test do
   gem "rspec"
   gem 'rspec-rails' # gem "faker"
   gem 'webrat'
-  gem 'hpricot' 
+  gem 'hpricot'
 end
