@@ -1,0 +1,15 @@
+#info-window
+  #siteNotice
+  %h1#firstHeading.firstHeading
+    = @coop.name
+    %img{ :src => "/images/dojo.png" }
+  #bodyContent
+    %p
+      %strong
+        Cidade:
+        = @coop.city
+    %p= "Endereço: #{@coop.address} - #{@coop.district} - #{@coop.postal_code}"
+    %p
+      %strong
+        Materiar:
+        = @coop.material
