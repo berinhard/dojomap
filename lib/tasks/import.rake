@@ -1,3 +1,3 @@
 task :import => :environment do
-  DojoImporter.new
+  CoopImporter.new
 end
