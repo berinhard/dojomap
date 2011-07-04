@@ -16,19 +16,21 @@ function initialize_map(position) {
   var image = '/images/coop.gif';
   $.getJSON('/coops', function(coops) {
     $(coops).each(function(index, d) {
-			var coop = d.coop;
+      var coop = d.coop;
       var marker = new google.maps.Marker({
         position: new google.maps.LatLng(coop.latitude,coop.longitude),
         map: map,
         icon: image
       });
-      $.get("/coops/" + coop.id, function(contentSting) {
+      marker.coop_id = coop.id
 
-        var infowindow = new google.maps.InfoWindow({
-            content: contentSting
-        });
+      google.maps.event.addListener(marker, 'click', function() {
+        $.get("/coops/" + marker.coop_id, function(contentSting) {
 
-        google.maps.event.addListener(marker, 'click', function() {
+          var infowindow = new google.maps.InfoWindow({
+              content: contentSting
+          });
+
           infowindow.open(map,marker);
         });
       });
