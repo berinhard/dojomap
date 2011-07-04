@@ -1,10 +1,7 @@
 class CoopsController < ApplicationController
 
   def index
-    all_coops = Coop.all
-    @coops = all_coops.select do |coop|
-      coop.city.include? "RJ"
-    end
+    @coops = Coop.all
     respond_to do |format|
       format.json { render :json => @coops }
     end
